@@ -1,6 +1,7 @@
 #pragma once
 #include <stdint.h>
 
+#pragma pack(1)
 struct RGBA
 {
     uint8_t r{0}; //red
@@ -8,5 +9,4 @@ struct RGBA
     uint8_t b{0}; //blue
     uint8_t a{0}; //alpha
 };
-
 #pragma pack(pop)
