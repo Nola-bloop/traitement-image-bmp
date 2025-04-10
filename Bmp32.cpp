@@ -29,7 +29,7 @@ Bmp32::Bmp32(const char* filePath)
     }
 }
 
-Bmp32::Bmp32(int width, int heigth, uint8_t r = 255, uint8_t g = 255, uint8_t b = 255)
+Bmp32::Bmp32(int width, int height, uint8_t r = 255, uint8_t g = 255, uint8_t b = 255)
 {
     // Le d�calage en octets pour obtenir les donn�es des pixels
     // est �quivalent � la taille des 3 en-t�tes
@@ -37,12 +37,12 @@ Bmp32::Bmp32(int width, int heigth, uint8_t r = 255, uint8_t g = 255, uint8_t b 
 
     // La taille totale est calcul�e � partir de la taille des en-t�tes et additionn�e
     // � la tailles des pixels constituant l'image o� chaque pixel a 4 composantes (BGRA) de 1 octet
-    m_fileHeader.file_size = m_fileHeader.offset + width * heigth * 4;
+    m_fileHeader.file_size = m_fileHeader.offset + width * height * 4;
 
     m_infoHeader.size = sizeof(m_infoHeader) + sizeof(m_colorHeader);
     m_infoHeader.width = width;
-    m_infoHeader.height = -heigth;
-    m_infoHeader.size_image = width * heigth * 4;
+    m_infoHeader.height = -height;
+    m_infoHeader.size_image = width * height * 4;
     m_infoHeader.bit_count = 32;
 
     m_data.resize(m_infoHeader.size_image);
