@@ -1,22 +1,24 @@
 #ifndef HEADERS_H
 #define HEADERS_H
 
+#include <stdint.h>
+
 // La commande prama pack permet de condenser les structures
 // Elle ordonne on compilateur de ne pas ajouter de bits lors de la compilation
 #pragma pack(push, 1)
 struct BMPFilheader
 {
-    uint16_t file_type{ 0x4D42 }; // Toujours 0x4D42 qui représente BM
+    uint16_t file_type{ 0x4D42 }; // Toujours 0x4D42 qui reprï¿½sente BM
     uint32_t file_size{ 0 }; // Taille du fichier en octets (bytes)
     uint16_t reserved1{ 0 };
     uint16_t reserved2{ 0 };
-    uint32_t offset{ 0 }; // L'endroit où les pixel commencent à partir du début du fichier (en octets)
+    uint32_t offset{ 0 }; // L'endroit oï¿½ les pixel commencent ï¿½ partir du dï¿½but du fichier (en octets)
 };
 
 struct BMPInfoHeader {
-    uint32_t size{ 0 }; // Taille de cet en-tête en octets
+    uint32_t size{ 0 }; // Taille de cet en-tï¿½te en octets
     int32_t width{ 0 }; // Largeur de l'image en pixels
-    int32_t height{ 0 }; // Hauteur de l'image en pixels. Positive image commence en bas à gauche, Négative image commence en haut à gauche
+    int32_t height{ 0 }; // Hauteur de l'image en pixels. Positive image commence en bas ï¿½ gauche, Nï¿½gative image commence en haut ï¿½ gauche
     uint16_t planes{ 1 }; //
     uint16_t bit_count{ 0 }; // nb de bits/pixel (32,24,etc)
     uint32_t compression{ 0 };

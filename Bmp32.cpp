@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <stdint.h>
 
 int Bmp32::IndexFromPos(int x, int y)
 {
@@ -30,12 +31,12 @@ Bmp32::Bmp32(const char* filePath)
 
 Bmp32::Bmp32(int width, int heigth, uint8_t r = 255, uint8_t g = 255, uint8_t b = 255)
 {
-    // Le décalage en octets pour obtenir les données des pixels
-    // est équivalent à la taille des 3 en-têtes
+    // Le dï¿½calage en octets pour obtenir les donnï¿½es des pixels
+    // est ï¿½quivalent ï¿½ la taille des 3 en-tï¿½tes
     m_fileHeader.offset = sizeof(m_fileHeader) + sizeof(m_infoHeader) + sizeof(m_colorHeader);
 
-    // La taille totale est calculée à partir de la taille des en-têtes et additionnée
-    // à la tailles des pixels constituant l'image où chaque pixel a 4 composantes (BGRA) de 1 octet
+    // La taille totale est calculï¿½e ï¿½ partir de la taille des en-tï¿½tes et additionnï¿½e
+    // ï¿½ la tailles des pixels constituant l'image oï¿½ chaque pixel a 4 composantes (BGRA) de 1 octet
     m_fileHeader.file_size = m_fileHeader.offset + width * heigth * 4;
 
     m_infoHeader.size = sizeof(m_infoHeader) + sizeof(m_colorHeader);

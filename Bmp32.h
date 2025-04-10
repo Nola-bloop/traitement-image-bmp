@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <stdint.h>
 
 #include "Headers.h"
 
