@@ -44,7 +44,7 @@ Bmp32::Bmp32(int width, int height, uint8_t r = 255, uint8_t g = 255, uint8_t b 
     m_data.resize(m_infoHeader.size_image);
     for (int i = 0; i < m_data.size(); i++)
     {
-        m_data[i] = RGBA{r, g, b, 255};
+        m_data[i] = RGBA{b, g, r, 255};
     }
 }
 
@@ -71,7 +71,7 @@ void Bmp32::DrawRect(int x, int y, int w, int h, uint8_t r, uint8_t g, uint8_t b
     {
         for (int j = 0; j < h; j++)
         {
-            m_data[idx] = RGBA{r, g, b, a};
+            m_data[idx] = RGBA{b, g, r, a};
         }
     }
 }
