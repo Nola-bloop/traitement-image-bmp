@@ -5,12 +5,13 @@
 #include <string>
 #include <stdint.h>
 
+#include "rgba.h"
 #include "Headers.h"
 
 class Bmp32
 {
 private:
-    std::vector<uint8_t> m_data{};
+    std::vector<RGBA> m_data{};
     BMPFilheader m_fileHeader;
     BMPInfoHeader m_infoHeader;
     BMPColorHeader m_colorHeader;

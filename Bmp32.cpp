@@ -1,14 +1,10 @@
 #include "Bmp32.h"
+#include "rgba.h"
 
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <stdint.h>
-
-int Bmp32::IndexFromPos(int x, int y)
-{
-    return (x + m_infoHeader.width * y) * 4;
-}
 
 
 Bmp32::Bmp32(const char* filePath)
@@ -46,12 +42,9 @@ Bmp32::Bmp32(int width, int height, uint8_t r = 255, uint8_t g = 255, uint8_t b 
     m_infoHeader.bit_count = 32;
 
     m_data.resize(m_infoHeader.size_image);
-    for (int i = 0; i < m_data.size(); i += 4)
+    for (int i = 0; i < m_data.size(); i++)
     {
-        m_data[i] = b;
-        m_data[i + 1] = g;
-        m_data[i + 2] = r;
-        m_data[i + 3] = 255;
+        m_data[i] = RGBA{r, g, b, 255};
     }
 }
 
@@ -78,11 +71,7 @@ void Bmp32::DrawRect(int x, int y, int w, int h, uint8_t r, uint8_t g, uint8_t b
     {
         for (int j = 0; j < h; j++)
         {
-            idx = IndexFromPos(x + i, y + j);
-            m_data[idx] = b;
-            m_data[idx + 1] = g;
-            m_data[idx + 2] = r;
-            m_data[idx + 3] = a;
+            m_data[idx] = RGBA{r, g, b, a};
         }
     }
 }
