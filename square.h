@@ -18,8 +18,8 @@ public:
     Square(Vector2 pos, RGBA col);
     ~Square();
 
-    /// @brief trouver
-    /// @param w 
-    /// @return 
+    /// @brief trouver tous les indexes où dessiner
+    /// @param w : width de l'image
+    /// @return les indexes où dessiner
     std::vector<int> Draw(int w);
 };

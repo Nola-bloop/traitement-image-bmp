@@ -2,6 +2,7 @@
 #include "rgba.h"
 #include "GestionFichier.h"
 #include "Image.h"
+#include "IDrawable.h"
 
 #include <iostream>
 #include <fstream>
@@ -41,15 +42,13 @@ Bmp32::~Bmp32()
 {
 }
 
-void Bmp32::DrawRect(int x, int y, int w, int h, uint8_t r, uint8_t g, uint8_t b, uint8_t a)
+void Bmp32::Draw(IDrawable* forme, RGBA col)
 {
-    int idx{ 0 };
-    for (int i = 0; i < w; i++)
-    {
-        for (int j = 0; j < h; j++)
-        {
-            m_image.data[idx] = RGBA{b, g, r, a};
-        }
+    std::vector<int> toDraw = forme->Draw(this->m_image.infoHeader.width);
+
+    while (!toDraw.empty()){
+        this->m_image.data.at(toDraw.at(toDraw.size()-1)) = col;
+        toDraw.pop_back();
     }
 }
 

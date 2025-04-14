@@ -8,6 +8,7 @@
 #include "rgba.h"
 #include "Headers.h"
 #include "Image.h"
+#include "IDrawable.h"
 
 class Bmp32
 {
@@ -18,7 +19,7 @@ public:
     Bmp32(const char*);
     Bmp32(int, int, uint8_t, uint8_t, uint8_t);
     ~Bmp32();
-    void DrawRect(int, int, int, int, uint8_t r = 255, uint8_t g = 255, uint8_t b = 255, uint8_t a = 255);
+    void Draw(IDrawable* forme, RGBA col);
     void Negative();
     Image retournerImage();
 };
