@@ -9,4 +9,3 @@ struct RGBA
     uint8_t b{0}; //blue
     uint8_t a{0}; //alpha
 };
-#pragma pack(pop)
