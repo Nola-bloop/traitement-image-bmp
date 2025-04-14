@@ -61,3 +61,8 @@ Image Bmp32::retournerImage()
 {
     return m_image;
 }
+
+void Bmp32::Save(const char * path)
+{
+    GestionFichier::Save(path, this->m_image);
+}

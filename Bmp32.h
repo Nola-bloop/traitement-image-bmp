@@ -22,6 +22,7 @@ public:
     void Draw(IDrawable* forme, RGBA col);
     void Negative();
     Image retournerImage();
+    void Save(const char * path);
 };
 
 #endif

@@ -8,7 +8,6 @@
 class IDrawable
 {
 public:
-    RGBA color{0,0,0,100}; //couleur de base
     Vector2 pos;
 
     /// @brief Trouver tous les indexes à colorer

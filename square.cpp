@@ -5,13 +5,23 @@
 #include <stdexcept>
 #include <vector>
 #include <math.h>
+#include <stdint.h>
 
-Square::Square(Vector2 pos, RGBA col){
+Square::Square(Vector2 pos){
     //sanity
-    if (pos.getNormal() < 1){ std::__throw_invalid_argument("Le carré ne peut pas avoir une taille plus petite que 1 !"); }
+    if (pos.getNormal() < 1)
+        std::__throw_invalid_argument("Le carré ne peut pas avoir une taille plus petite que 1 !");
     
-    this->color = col;
     this->pos = pos;
+}
+
+Square::Square(int x, int y, int cx, int cy)
+{
+    Vector2 v{x, y, cx, cy};
+    if (v.getNormal() < 1)
+        std::__throw_invalid_argument("Le carré ne peut pas avoir une taille plus petite que 1 !");
+
+    this->pos = v;
 }
 
 std::vector<int> Square::Draw(int w)
