@@ -1,6 +1,6 @@
 #include "vector2.h"
 
-#include <math.h>
+#include <cmath>
 
 int Vector2::getNormal()
 {
